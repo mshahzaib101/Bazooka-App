@@ -1,0 +1,52 @@
+.formAddContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.formAddContainer1{
+    width: 60%;
+    padding: 0px 0px 0px 0px;
+}
+.addHeading{
+    margin-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    color: #000;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+  .subPublishHeading{
+    font-weight: 700;
+  }
+
+  .generalContainer{
+    display: flex;
+    justify-content: space-between;
+  }
+  .generalContainer2{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* .subitLoader{
+    display: none;
+  } */
+  
+  @media only screen and (max-width: 700px) {
+    .addHeading{
+        font-size: 17px;
+      }
+      .formAddContainer1{
+        width: 90%;
+        padding: 0px 0px 0px 0px;
+    }
+    .generalContainer{
+        display: block;
+      }
+    .generalContainer2{
+      display: block;
+    }
+    }

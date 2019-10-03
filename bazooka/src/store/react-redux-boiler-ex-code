@@ -1,0 +1,156 @@
+REDUX GUIDE
+*   redux is a javasript library for centrailising data. It is mostly used with react.
+*   dependies used with it are
+        redux
+        react-redux
+        redux-thunk
+*   We can follow any arthitacture for react-redux but redux community preffered a particular
+    one. In it we have a seperate store folder called store containing
+        actions     for all actions used to update the redux store
+        reducers    for the flow of data
+        middlewares for doing business logic like getting data from database
+        index.js    for creating root for store
+*   1   import these in main index.js
+                import store from './store'
+                import { Provider } from 'react-redux'
+        create a wrapper for redux
+                 //Wraping up in Provider
+                    <Provider store={store}>
+                        <div>
+                        <App/>
+                        </div>
+                    </Provider>
+*   2   code for store/index.js
+                import { createStore } from 'redux'
+                //Update in counter 9 -- import combineReducers to combine all reducers
+                import { combineReducers, applyMiddleware } from 'redux';
+                import thunk from 'redux-thunk';
+
+                import incrementCounter from './reducers/incrementCounter';
+                import decrementCounter from './reducers/decrementCounter';
+
+                //Update in counter 13 -- call applyMiddleware
+                const middleware = applyMiddleware(thunk);
+
+
+                //Update in counter 9 -- this will combine all reducers in one
+                export const rootReducer = combineReducers({
+                    incrementCounter,
+                    decrementCounter
+                // more reducers go here
+                })
+
+                //Update in counter 9 -- passing root reducer
+                //Update in counter 13 -- pass middleware in createStore
+                let store = createStore(
+                rootReducer,
+                middleware
+                )
+
+                store.subscribe(() =>
+                console.log(store.getState())
+                );
+
+                export default store;
+
+*   3   code for reducer
+                //Update in counter 9 multiple reducer
+
+                // Update in counter 8 import action 
+                import CounterAction from '../actions/counter'
+
+                //Update in counter 10 -- state object
+                const INITIAL_STATE = {
+                    incrementState : 0
+                }
+
+                // update in counter 5 -- keeping reducer function in separate file.
+                //value is state, but we need to use state property in component 
+                // that's why i have changed variable name here
+                // Update in coutner 10 -- passing INITIAL_STATE as default value
+                function incrementCounter(state = INITIAL_STATE, action) {
+                switch (action.type) {
+                    // Update in counter 8 -- using counter static properties in switch case
+                    // so that it can be controlled from single place
+                case CounterAction.INCREMENT:
+                    // IMPORTANT: returning simple value therefore it will be avaiable as 
+                    // simple value and not as object
+                    //return value + 1
+                    return Object.assign({}, state, { incrementState: state.incrementState + 1 });
+                // Update in counter 6 -- more type of actions
+                case CounterAction.INCREMENT_WITH_VALUE:
+                    //return value + action.val;
+                    return Object.assign({}, state, { incrementState: state.incrementState + action.val });
+                default:
+                    return state
+                }
+                }
+
+                export default incrementCounter;
+*   4   code for acction
+                // Update in Counter 8 -- Separate action file as class
+                export default class CounterAction {
+
+                    // static properties to be used in reducer for switch cases
+                    static INCREMENT = "INCREMENT";
+                    static DECREMENT = "DECREMENT";
+                    static INCREMENT_WITH_VALUE = "INCREMENT_WITH_VALUE";
+                    static DECREMENT_WITH_VALUE = "DECREMENT_WITH_VALUE";
+
+                    // static functions to be mapped with dispatch in component
+                    static increment(){
+                        return { 
+                            type: 'INCREMENT'
+                        }
+                    }
+
+                    static decrement(){
+                        return { 
+                            type: 'DECREMENT' 
+                        }
+                    }
+
+                    static incrementWithValue(value){
+                        return { 
+                            type: 'INCREMENT_WITH_VALUE',
+                            val: value
+                        }
+                    }
+
+                    static decrementWithValue(value){
+                        return { 
+                            type: 'DECREMENT_WITH_VALUE',
+                            val: value
+                        }
+                    }
+                }
+*   5   code for middleware
+                import CounterAction from "./../actions/counter";
+
+                //Update in counter 13 -- create Middleware
+                export default class CounterMiddleware {
+
+                    //Update in counter 13 -- This function will be called 
+                    static asyncIncrement(data) {
+                        console.log("test ",data);
+                        return (dispatch) => {
+                            // My Business logic Here
+                            data = data * 2;
+                            dispatch(CounterAction.incrementWithValue(data))
+                        }
+                    }
+
+    
+
+   
+
+
+
+
+    
+}
+
+
+    
+
+*

@@ -1,0 +1,141 @@
+.closeIconBtn{
+    float: left;
+}
+
+.messages-footer{
+    display: flex;
+    width: 100%;
+    color:  black;
+     position: fixed;
+    bottom: 1px;
+    flex-direction: row;
+    margin: 2px auto;
+    background-color: #2fdab8;
+     justify-content: center;
+     padding: 6px 0px 2px 0px;
+
+   
+}
+.messages-header{
+    color:  black;
+     background-color: #2fdab8;
+     position: fixed;
+     top:0px;
+     width: 100%;
+}
+.messages-footerchild1{
+    width: 10%;
+}
+.messages-footerchild2{
+    width: 60%;
+    margin-left: 0px;
+    margin-right: 8px;
+}
+.messages-footerchild3{
+    width: 10%;
+}
+.messages-view{
+    width: 50%;
+    height: 70%;
+    margin: 0px auto;
+    border-right: 1px solid #bebebe;
+    border-left: 1px solid #bebebe;
+    position: fixed;
+     top:100px;
+     left: 25%;
+     overflow-y: scroll;
+
+}
+.senderMsg-style{
+   
+    display: block;
+    text-align: right;
+    margin: 0px 15px 10px 0px;
+    font-size: 20px;
+    
+}
+.recieverMsg-style{
+    font-size: 20px;
+    display: block;
+    text-align: left;
+    margin: 0px 0px 10px 15px;
+}
+.msg-style-sen{
+    background-color: #2fdab8;
+    color: #545454;
+    border-radius: 6px;
+    padding: 5px 8px 5px 8px;
+
+
+}
+.msg-style-rec{
+    background-color: #545454;
+    color:   #2fdab8;
+    border-radius: 6px;
+    padding: 5px 8px 5px 8px;
+}
+.chat-list{
+    width: 60%;
+    margin: 5px auto;
+}
+
+.logout-btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 2px auto;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .messages-footer{
+         padding: 6px 20px 3px 15px;
+        justify-content: space-between
+       
+    }
+    
+        .messages-footerchild2{
+            width: 60%;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .messages-view{
+            width: 90%;
+            height: 70%;
+            margin: 0px auto;
+            border-right: 1px solid #bebebe;
+            border-left: 1px solid #bebebe;
+            position: fixed;
+             top:15%;
+             left: 5%;
+             overflow-y: scroll;
+        
+        }
+        .senderMsg-style{
+            font-size: 17px;
+            display: block;
+            text-align: right;
+            margin: 0px 15px 10px 0px;
+            
+        }
+        .recieverMsg-style{
+            font-size: 17px;
+            display: block;
+            text-align: left;
+            margin: 0px 0px 10px 15px;
+        }
+        .msg-style-sen{
+          
+            padding: 5px 8px 8px 8px;
+        
+        
+        }
+        .msg-style-rec{
+      
+            padding: 5px 8px 8px 8px;
+        }
+        .chat-list{
+            width: 100%;
+            margin: 5px auto;
+        }
+}

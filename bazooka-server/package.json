@@ -1,0 +1,16 @@
+{
+  "name": "bazooka",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^5.0.0-alpha.2",
+    "mongoose": "^5.2.12",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

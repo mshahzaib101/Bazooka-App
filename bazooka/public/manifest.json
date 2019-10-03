@@ -1,0 +1,30 @@
+{
+  "short_name": "bazooka",
+  "name": "Bazooka",
+  "icons": [{
+      "src": "icon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "icon144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "icon152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "icon256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "gcm_sender_id": "103953800507"
+}
